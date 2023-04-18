@@ -1,0 +1,3524 @@
+{
+	"info": {
+		"_postman_id": "e02d7bff-0017-48eb-a12a-d5b91c97b5a3",
+		"name": "Reloadly API",
+		"description": "## About Reloadly\n\nReloadly's APIs facilitates connections to mobile credits, digital gift cards and fintech services to end users. You can learn more by checking out our [API documentation](https://developers.reloadly.com)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10883853"
+	},
+	"item": [
+		{
+			"name": "Airtime API",
+			"item": [
+				{
+					"name": "Production",
+					"item": [
+						{
+							"name": "Access Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\":\"{{client_id}}\",\n\t\"client_secret\":\"{{client_secret}}\",\n\t\"grant_type\":\"client_credentials\",\n\t\"audience\":\"https://topups.reloadly.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Balance",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_airtime}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/accounts/balance",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"accounts",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Countries",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/countries",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Country By ISO",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/countries/NG",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries",
+										"NG"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operators",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "includeBundles",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeData",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includePin",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operator for phone [auto-detect]",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/auto-detect/phone/03238482221/countries/PK",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"auto-detect",
+										"phone",
+										"03238482221",
+										"countries",
+										"PK"
+									],
+									"query": [
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "SuggestedAmounts",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operator By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/128",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"128"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operators For ISO",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/countries/GB",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"countries",
+										"GB"
+									],
+									"query": [
+										{
+											"key": "includeBundles",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeData",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includePin",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fx-Rates",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"operatorId\":\"1\",\n\t\"amount\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/fx-rate",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"fx-rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discounts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/commissions",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"commissions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discount By Operator Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/173/commissions",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"173",
+										"commissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/promotions",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/promotions/12",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Country's ISO",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/promotions/country-codes/US",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"country-codes",
+										"US"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Operator Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/promotions/operators/129",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"operators",
+										"129"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Async Topup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"operatorId\":\"543\",\r\n\t\"amount\":\"1\",\r\n\t\"useLocalAmount\": false,\r\n\t\"customIdentifier\": \"{{$guid}}\",\r\n\t\"recipientPhone\": {\r\n\t\t\"countryCode\": \"ES\",\r\n\t\t\"number\": \"657228901\"\r\n\t},\r\n\t\"senderPhone\": {\r\n\t\t\"countryCode\": \"CA\",\r\n\t\t\"number\": \"1231231231\"\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups.reloadly.com/topups-async",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups-async"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topup",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"operatorId\":\"543\",\n\t\"amount\":\"1\",\n\t\"useLocalAmount\": false,\n\t\"customIdentifier\": \"{{$guid}}\",\n\t\"recipientPhone\": {\n\t\t\"countryCode\": \"ES\",\n\t\t\"number\": \"657228901\"\n\t},\n\t\"senderPhone\": {\n\t\t\"countryCode\": \"CA\",\n\t\t\"number\": \"1231231231\"\n\t}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups.reloadly.com/topups",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/topups/12345/status",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"12345",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/topups/reports/transactions",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"reports",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "countryCode",
+											"value": "\"US\"",
+											"disabled": true
+										},
+										{
+											"key": "customIdentifier",
+											"value": "bills",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2021-04-30%00:00:00",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2021-07-30%00:00:00",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/topups/reports/transactions/{transactionid}",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"reports",
+										"transactions",
+										"{transactionid}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working with live applications.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer_airtime}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Sandbox",
+					"item": [
+						{
+							"name": "Access Token - Sandbox",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\":\"{{sandbox_client_id}}\",\n\t\"client_secret\":\"{{sandbox_client_secret}}\",\n\t\"grant_type\":\"client_credentials\",\n\t\"audience\":\"https://topups-sandbox.reloadly.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Balance - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/accounts/balance",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"accounts",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Countries - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/countries",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Country By ISO - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/countries/US",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries",
+										"US"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operators - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "includeBundles",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeData",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includePin",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operator for phone [auto-detect] - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/auto-detect/phone/03238482221/countries/PK",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"auto-detect",
+										"phone",
+										"03238482221",
+										"countries",
+										"PK"
+									],
+									"query": [
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "SuggestedAmounts",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operator By Id - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/128",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"128"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Operators For ISO - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/countries/PK",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"countries",
+										"PK"
+									],
+									"query": [
+										{
+											"key": "includeBundles",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeData",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includePin",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmounts",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fx-Rates - Sandbox",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"operatorId\":\"1\",\n\t\"amount\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/fx-rate",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"fx-rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discounts - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/commissions",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"commissions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discount By Operator Id - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/173/commissions",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"173",
+										"commissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotions - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/promotions",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Id - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/promotions/12",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Country's ISO - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/promotions/country-codes/US",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"country-codes",
+										"US"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Promotion By Operator Id - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/promotions/operators/129",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"promotions",
+										"operators",
+										"129"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Async Topup - Sandbox",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"operatorId\":\"444\",\r\n\t\"amount\":\"1\",\r\n\t\"useLocalAmount\": false,\r\n\t\"customIdentifier\": \"This is example identifier\",\r\n\t\"recipientPhone\": {\r\n\t\t\"countryCode\": \"ES\",\r\n\t\t\"number\": \"657228901\"\r\n\t},\r\n\t\"senderPhone\": {\r\n\t\t\"countryCode\": \"CA\",\r\n\t\t\"number\": \"1231231231\"\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/topups-async",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups-async"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topup - Sandbox",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"operatorId\":\"341\",\n\t\"amount\":\"50\",\n\t\"useLocalAmount\": true,\n\t\"customIdentifier\": \"{{$guid}}\",\n\t\"recipientPhone\": {\n\t\t\"countryCode\": \"NG\",\n\t\t\"number\": \"2348031234567\"\n\t},\n\t\"senderPhone\": {\n\t\t\"countryCode\": \"NG\",\n\t\t\"number\": \"2348031234567\"\n\t}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/topups",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Status - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/topups/12345/status",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"12345",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/topups/reports/transactions",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"reports",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "countryCode",
+											"value": "\"US\"",
+											"disabled": true
+										},
+										{
+											"key": "customIdentifier",
+											"value": "bills",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2021-04-30%00:00:00",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2021-07-30%00:00:00",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions by ID - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/topups/reports/transactions/{transactionid}",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"topups",
+										"reports",
+										"transactions",
+										"{transactionid}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working in test mode and simulating real-like scenarios.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{sandboxbearer_airtime}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "The Airtime API collection contains Reloadly's Airtime API endpoints. With this, you can view details of operators, countries, discounts, and promotions. You can also make top-ups and asynchronous top-ups as well.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "GiftCard API",
+			"item": [
+				{
+					"name": "Production",
+					"item": [
+						{
+							"name": "Access Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"client_id\":\"{{client_id}}\",\r\n\t\"client_secret\":\"{{client_secret}}\",\r\n\t\"grant_type\":\"client_credentials\",\r\n\t\"audience\":\"https://giftcards.reloadly.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/products?page=1",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "includeRange",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeFixed",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "3",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product By ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/products/10253",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products",
+										"10253"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product By ISO",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/countries/ng/products",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries",
+										"ng",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Instructions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/redeem-instructions",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"redeem-instructions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Instructions By Brand ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/redeem-instructions/2",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"redeem-instructions",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discounts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/discounts",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"discounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "200",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discount By Product ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/products/10/discounts",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products",
+										"10",
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/reports/transactions",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"reports",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2021-06-01%2000:00:00",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2021-07-20%2023:17:02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transaction By ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/reports/transactions/24625",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"reports",
+										"transactions",
+										"24625"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Order",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 5,\r\n    \"countryCode\": \"ES\",\r\n    \"quantity\": 2,\r\n    \"unitPrice\": 100,\r\n    \"customIdentifier\": \"{{$guid}}\",\r\n    \"senderName\": \"Business\",\r\n    \"recipientEmail\": \"example@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://giftcards.reloadly.com/orders",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Codes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards.reloadly.com/orders/transactions/2/cards",
+									"protocol": "https",
+									"host": [
+										"giftcards",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"orders",
+										"transactions",
+										"2",
+										"cards"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working with live applications.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer_giftcard}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Sandbox",
+					"item": [
+						{
+							"name": "Access Token - Sandbox",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"client_id\":\"{{sandbox_client_id}}\",\r\n\t\"client_secret\":\"{{sandbox_client_secret}}\",\r\n\t\"grant_type\":\"client_credentials\",\r\n\t\"audience\":\"https://giftcards-sandbox.reloadly.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/products",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "includeRange",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "includeFixed",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product By ID - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/products/10",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product By ISO - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/countries/ng/products",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"countries",
+										"ng",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Instructions - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/redeem-instructions",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"redeem-instructions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Instructions By Brand ID - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/redeem-instructions/4",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"redeem-instructions",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discounts - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/discounts",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"discounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "200",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Discount By Product ID - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/products/10/discounts",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"products",
+										"10",
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/reports/transactions",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"reports",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2021-06-01%2000:00:00",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2021-07-20%2023:17:02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transaction By ID - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/reports/transactions/10",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"reports",
+										"transactions",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Order - Sandbox",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 120,\r\n    \"countryCode\": \"US\",\r\n    \"quantity\": 1,\r\n    \"unitPrice\": 1,\r\n    \"customIdentifier\": \"obucks10\",\r\n    \"senderName\": \"John Doe\",\r\n    \"recipientEmail\": \"anyone@email.com\",\r\n     \"recipientPhoneDetails\": {\r\n        \"countryCode\": \"ES\",\r\n        \"phoneNumber\": \"657228901\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/orders",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Redeem Codes - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.giftcards-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://giftcards-sandbox.reloadly.com/orders/transactions/2/cards",
+									"protocol": "https",
+									"host": [
+										"giftcards-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"orders",
+										"transactions",
+										"2",
+										"cards"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working in test mode and simulating real-like scenarios.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{sandboxbearer_giftcard}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "GiftCard API: This collection contains Reloadly's GiftCard API endpoints. With this, you can have access to gift card products, brands, discounts, redeem instructions and ordering of a gift card."
+		},
+		{
+			"name": "Number Lookup API",
+			"item": [
+				{
+					"name": "Production",
+					"item": [
+						{
+							"name": "Number Lookup - GET",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups.reloadly.com/operators/mnp-lookup/phone/0657829900/countries/ES",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"mnp-lookup",
+										"phone",
+										"0657829900",
+										"countries",
+										"ES"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Number Lookup - POST",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"number\": \"03238582221\",\r\n    \"countryCode\": \"PK\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups.reloadly.com/mnp-lookup/operators",
+									"protocol": "https",
+									"host": [
+										"topups",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"mnp-lookup",
+										"operators"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working with live applications.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer_airtime}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Sandbox",
+					"item": [
+						{
+							"name": "Number Lookup - GET - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/operators/mnp-lookup/phone/0657829900/countries/ES",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"operators",
+										"mnp-lookup",
+										"phone",
+										"0657829900",
+										"countries",
+										"ES"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Number Lookup - POST - Sandbox",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.topups-v1+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"number\": \"03238582221\",\r\n    \"countryCode\": \"PK\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://topups-sandbox.reloadly.com/mnp-lookup/operators",
+									"protocol": "https",
+									"host": [
+										"topups-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"mnp-lookup",
+										"operators"
+									],
+									"query": [
+										{
+											"key": "suggestedAmounts",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "suggestedAmountsMap",
+											"value": "false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder contains all the endpoints to be used when working in test mode and simulating real-like scenarios.",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{sandboxbearer_airtime}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "Number Lookup API: This collection has endpoints for Reloadly's Number Lookup API. With this, you can view the operator details of any number - especially when it has been ported to a different operator."
+		},
+		{
+			"name": "Utility Payments API",
+			"item": [
+				{
+					"name": "Production",
+					"item": [
+						{
+							"name": "Access Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"client_id\": \"{{client_id}}\",\r\n  \"client_secret\": \"{{client_secret}}\",\r\n  \"grant_type\": \"client_credentials\",\r\n  \"audience\": \"https://utilities.reloadly.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Balance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities.reloadly.com/accounts/balance",
+									"protocol": "https",
+									"host": [
+										"utilities",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"accounts",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Billers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities.reloadly.com/billers",
+									"protocol": "https",
+									"host": [
+										"utilities",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"billers"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "The biller ID. Uniquely identifies the biller servicing the utility.",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "This indicates the utility biller's name. In situations where the biller's name is exceptionally long, partial names are allowed.",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "",
+											"description": "This indicates the type of utility payment handled by the biller. Following values are allowed: ELECTRICITY_BILL_PAYMENT, WATER_BILL_PAYMENT, TV_BILL_PAYMENT and INTERNET_BILL_PAYMENT.",
+											"disabled": true
+										},
+										{
+											"key": "serviceType",
+											"value": "",
+											"description": "This indicates the payment service type being rendered by the utility biller service. Examples are PREPAID  and  POSTPAID.",
+											"disabled": true
+										},
+										{
+											"key": "countryISOCode",
+											"value": "",
+											"description": "This indicates the ISO code of the country where the utility biller is operating in.",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "This specifies the number of pages to be retrieved.",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "",
+											"description": "This specifies the number of billers to be retrieved per page.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pay Bill",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"subscriberAccountNumber\": \"04223568280\",\r\n  \"amount\": 1000,\r\n  \"billerId\": 5,\r\n  \"useLocalAmount\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://utilities.reloadly.com/pay",
+									"protocol": "https",
+									"host": [
+										"utilities",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"pay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities.reloadly.com/transactions",
+									"protocol": "https",
+									"host": [
+										"utilities",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "referenceId",
+											"value": "",
+											"description": "The reference ID you may have specified while placing the transaction.",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "The page to be retrieved from the transaction list.",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "",
+											"description": "Number of items to include in a single page.",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "",
+											"description": "The start time to be used for the search. Format is YYYY-MM-DD HH:mm:ss",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "",
+											"description": "The end time to be used for the search. Format is YYYY-MM-DD HH:mm:ss",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "",
+											"description": "The transaction's status. Can be one of the following: PROCESSING, SUCCESSFUL, FAILED or REFUNDED.",
+											"disabled": true
+										},
+										{
+											"key": "serviceType",
+											"value": "",
+											"description": "The biller's service type. Can be either PREPAID or POSTPAID .",
+											"disabled": true
+										},
+										{
+											"key": "billerType",
+											"value": "",
+											"description": "The biller's type. Can be one of the following: ELECTRICITY_BILL_PAYMENT, WATER_BILL_PAYMENT, TV_BILL_PAYMENT, INTERNET_BILL_PAYMENT",
+											"disabled": true
+										},
+										{
+											"key": "billerCountryCode",
+											"value": "",
+											"description": "The country code of the biller",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transaction by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities.reloadly.com/transactions/{id}",
+									"protocol": "https",
+									"host": [
+										"utilities",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"transactions",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer_utility}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Sandbox",
+					"item": [
+						{
+							"name": "Access Token - Sandbox",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"client_id\": \"{{sandbox_client_id}}\",\r\n  \"client_secret\": \"{{sandbox_client_secret}}\",\r\n  \"grant_type\": \"client_credentials\",\r\n  \"audience\": \"https://utilities-sandbox.reloadly.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://auth.reloadly.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"auth",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Balance - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities-sandbox.reloadly.com/accounts/balance",
+									"protocol": "https",
+									"host": [
+										"utilities-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"accounts",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Billers - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities-sandbox.reloadly.com/billers",
+									"protocol": "https",
+									"host": [
+										"utilities-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"billers"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "The biller ID. Uniquely identifies the biller servicing the utility.",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "This indicates the utility biller's name. In situations where the biller's name is exceptionally long, partial names are allowed.",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "",
+											"description": "This indicates the type of utility payment handled by the biller. Following values are allowed: ELECTRICITY_BILL_PAYMENT, WATER_BILL_PAYMENT, TV_BILL_PAYMENT and INTERNET_BILL_PAYMENT.",
+											"disabled": true
+										},
+										{
+											"key": "serviceType",
+											"value": "",
+											"description": "This indicates the payment service type being rendered by the utility biller service. Examples are PREPAID  and  POSTPAID.",
+											"disabled": true
+										},
+										{
+											"key": "countryISOCode",
+											"value": "",
+											"description": "This indicates the  of the country where the utility biller is operating in.",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "This specifies the number of pages to be retrieved.",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "",
+											"description": "This specifies the number of billers to be retrieved per page.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pay Bill - Sandbox",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"subscriberAccountNumber\": \"04223568280\",\r\n  \"amount\": 1000,\r\n  \"billerId\": 5,\r\n  \"useLocalAmount\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://utilities-sandbox.reloadly.com/pay",
+									"protocol": "https",
+									"host": [
+										"utilities-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"pay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions - Sandbox",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://utilities-sandbox.reloadly.com/transactions",
+									"protocol": "https",
+									"host": [
+										"utilities-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "referenceId",
+											"value": "",
+											"description": "The reference ID you may have specified while placing the transaction.",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "",
+											"description": "The page to be retrieved from the transaction list",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "",
+											"description": "Number of items to include in a single page.",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "",
+											"description": "The start time to be used for the search. Format is YYYY-MM-DD HH:mm:ss",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "",
+											"description": "The end time to be used for the search. Format is YYYY-MM-DD HH:mm:ss",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "",
+											"description": "The transaction's status. Can be one of the following: PROCESSING, SUCCESSFUL, FAILED or REFUNDED.",
+											"disabled": true
+										},
+										{
+											"key": "serviceType",
+											"value": "",
+											"description": "The biller's service type. Can be either PREPAID or POSTPAID .",
+											"disabled": true
+										},
+										{
+											"key": "billerType",
+											"value": "",
+											"description": "The biller's type. Can be one of the following: ELECTRICITY_BILL_PAYMENT, WATER_BILL_PAYMENT, TV_BILL_PAYMENT, INTERNET_BILL_PAYMENT",
+											"disabled": true
+										},
+										{
+											"key": "billerCountryCode",
+											"value": "",
+											"description": "The country code of the biller",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transaction by ID - Sandbox",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": " application/com.reloadly.utilities-v1+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://utilities-sandbox.reloadly.com/transactions/{id}",
+									"protocol": "https",
+									"host": [
+										"utilities-sandbox",
+										"reloadly",
+										"com"
+									],
+									"path": [
+										"transactions",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{sandboxbearer_utility}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "The Utility Payments API collection contains Reloadly's utility payment API endpoints. Using this, you can view details of utility billers that provide services such as electricity, water, and internet. You can also make a utility bill payment and view your transaction data."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"function randomString(minValue, maxValue, dataSet = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') {",
+					"    if (!minValue) {",
+					"        minValue = 10;",
+					"        maxValue = 10;",
+					"    }",
+					"",
+					"    if (!maxValue) {",
+					"        maxValue = minValue;",
+					"    }",
+					"",
+					"    let length = _.random(minValue, maxValue),",
+					"        randomString = \"\";",
+					"",
+					"    for (let i = 0; i < length; i++)",
+					"        randomString += dataSet.charAt(Math.floor(Math.random() * dataSet.length));",
+					"    return randomString;",
+					"}",
+					"",
+					"pm.variables.set('randomString', randomString());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sandbox_client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sandbox_client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bearer_airtime",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sandboxbearer_airtime",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bearer_giftcard",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sandboxbearer_giftcard",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bearer_utility",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sandboxbearer_utility",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
